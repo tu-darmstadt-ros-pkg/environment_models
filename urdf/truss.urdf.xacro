@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<robot     
+  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+  xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+  xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+  xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+  
+  <xacro:include filename="$(find hector_xacro_tools)/urdf/inertia_tensors.urdf.xacro" />
+  
+  <macro name="truss_macro" params="name scale">
+    
+    <!--  
+    <joint name="${name}_joint" type="fixed">
+    <insert_block name="origin"/>
+    <parent link="${parent}" />
+    <child link="${name}_link"/>
+    </joint>
+    -->
+    
+    <link name="${name}_link">  
+      
+      <xacro:inertial_cuboid_with_pose mass="4.0" x_length="0.3" y_length="1.52" z_length="0.3" >
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      </xacro:inertial_cuboid_with_pose>
+      
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://environment_models/Media/models/truss.dae" scale="${scale} ${scale} ${scale}"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.3 1.52 0.3" />
+        </geometry>
+      </collision>
+    </link>
+    
+    <gazebo reference="${name}_link">
+      <laserRetro>5003.0</laserRetro>
+    </gazebo>
+    
+  </macro>
+  
+</robot>

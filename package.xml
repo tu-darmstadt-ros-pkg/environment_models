@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>environment_models</name>
+  <version>0.0.0</version>
+  <description>The environment_models package</description>
+
+  <maintainer email="kohlbrecher@sim.tu-darmstadt.de">Stefan Kohlbrecher</maintainer>
+  
+  <author email="kohlbrecher@sim.tu-darmstadt.de">Stefan Kohlbrecher</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>hector_xacro_tools</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <gazebo_ros gazebo_media_path="${prefix}"/>
+  </export>
+</package>

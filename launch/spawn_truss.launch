@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+    <!-- send the robot XML to param server -->
+    <param name="truss_description" command="$(find xacro)/xacro.py '$(find environment_models)/urdf/truss_dynamic.urdf.xacro'" />
+
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <node name="$(anon spawn_truss)" pkg="gazebo_ros" type="spawn_model"
+      args="-param truss_description
+            -urdf
+            -z 1.0
+            -model $(anon truss_model)"
+      respawn="false" output="screen" />
+
+</launch>
