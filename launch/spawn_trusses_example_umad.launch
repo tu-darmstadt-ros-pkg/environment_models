@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+  <include file="$(find environment_models)/launch/spawn_truss.launch">
+   <arg name="x" value="4"/>
+   <arg name="y" value="0.5"/>
+  </include>
+  
+  <include file="$(find environment_models)/launch/spawn_truss.launch">
+   <arg name="x" value="2.5"/>
+   <arg name="y" value="1.0"/>
+  </include>
+
+</launch>
