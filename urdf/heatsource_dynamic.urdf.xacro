@@ -15,7 +15,7 @@
   <link name="world"/>
   
   <gazebo>
-    <static>false</static>
+    <static>true</static>
   </gazebo>  
   
   <hotspot_macro_axis_scaling parent="world" name="heatsource" filename="gauges/gauge_1.dae" scale_x="0.2" scale_y="0.1" scale_z="0.3">
