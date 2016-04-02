@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="model_name" default="$(anon heat_source)"/>
+    <arg name="x" default="10.0"/>
+    <arg name="y" default="4.5"/>
+    <arg name="z" default="0.1"/>
+    <arg name="Y" default="0.0"/>
+  
+  
+    <!-- send the robot XML to param server -->
+    <param name="heatsource_description" command="$(find xacro)/xacro.py '$(find environment_models)/urdf/heatsource_dynamic.urdf.xacro'" />
+
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <node name="spawn_$(arg model_name)" pkg="gazebo_ros" type="spawn_model"
+      args="-param heatsource_description
+            -urdf
+            -x $(arg x)
+            -y $(arg y)            
+            -z $(arg z)
+            -Y $(arg Y)
+            -model $(arg model_name)"
+      respawn="false" output="screen" />
+
+</launch>
