@@ -8,11 +8,11 @@
   
   <xacro:include filename="$(find hector_xacro_tools)/urdf/inertia_tensors.urdf.xacro" />
   
-  <macro name="truss_macro" params="name scale">
+  <xacro:macro name="truss_macro" params="name scale">
     
     <!--  
     <joint name="${name}_joint" type="fixed">
-    <insert_block name="origin"/>
+    <xacro:insert_block name="origin"/>
     <parent link="${parent}" />
     <child link="${name}_link"/>
     </joint>
@@ -42,6 +42,6 @@
       <laserRetro>5003.0</laserRetro>
     </gazebo>
     
-  </macro>
+  </xacro:macro>
   
 </robot>
